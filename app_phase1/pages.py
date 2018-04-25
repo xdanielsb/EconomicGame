@@ -24,6 +24,12 @@ class Contrib(Page):
 	def contribution_choices(self):
 		vrange = [ x * 0.5 for x in range(3) ]
 		return vrange
+	
+	def vars_for_template(self):
+		vars = {
+			'left_money' : self.player.participant.vars["endowment"],
+		}
+		return vars
 
 class Results(Page):
   
@@ -35,11 +41,8 @@ class Results(Page):
 			info_player["contribution_last_round"] =  player.participant.vars["contribution_last_round"]
 			info_player["total_saving"] = player.participant.vars["endowment"]
 			info_players.append(info_player)
-		print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-		print(info_players)
 		vars = {
 			'info_players': info_players,
-			'flag': "hello",
 		}
 		return vars
 

@@ -6,10 +6,15 @@
 {% endblock %}
 
 {% block content %}
-		Results :{{info_players}} 
+	<h2> Information players </h2>
+	{% for player in info_players %}
+		 id : {{ player.id }} <br>
+		 total savings : {{ player.total_saving}} <br>
+		 Contribution last round : {{ player.contribution_last_round }} <br> 
+	{% endfor %}
 
-		Flag : {{flag}}
   {% next_button %}
+
 {% endblock %}
 
 
