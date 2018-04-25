@@ -1,8 +1,8 @@
 # Swap
-[._]*.s[a-v][a-z]
-[._]*.sw[a-p]
-[._]s[a-v][a-z]
-[._]sw[a-p]
+[.]*.s[a-v][a-z]
+[.]*.sw[a-p]
+[.]s[a-v][a-z]
+[.]sw[a-p]
 
 # Session
 Session.vim
