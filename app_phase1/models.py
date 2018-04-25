@@ -36,11 +36,17 @@ class Group(BaseGroup):
 		players = self.get_players()
 		total_players = len(players)
 		pay_off = self.session.config["total_savings"] / total_players
+		print("$$$$$$$$$$$$$$$$$$")
+		print("total savings {} ".format(self.session.config["total_savings"]))
+		print("Money per participant {}".format(pay_off))
+
 		for player in players:
-			player.participant.vars["pay_off"] = pay_off + player.participant.vars["endowment"]
+			player.savings = pay_off + player.participant.vars["endowment"]
+
 
 class Player(BasePlayer):
 	endowment = models.FloatField()
+	savings = models.FloatField()
 	contribution = models.FloatField(doc="Saving by each player", widget=widgets.RadioSelectHorizontal, label="How much do you want to contribute")
 
 	

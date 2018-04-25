@@ -32,6 +32,9 @@ class Contrib(Page):
 		return vars
 
 class Results(Page):
+	def is_displayed(self):
+		if self.round_number < Constants.num_rounds:
+			return True
   
 	def vars_for_template(self):
 		info_players = []
@@ -49,7 +52,16 @@ class Results(Page):
 
 	
 class FinalResults(Page):
-	pass
+	def is_displayed(self):
+		if self.round_number  == Constants.num_rounds:
+			return True
+	
+	def vars_for_template(self):
+		vars = {
+			'pay_off' :self.player.savings,
+			'others_pay_off' : [ x.savings for x in self.group.get_players()]
+		}
+		return vars
 
 class ResultsWaitPage(WaitPage):
 		body_text = "Hello, Could you wait a second, please?"
@@ -64,4 +76,5 @@ page_sequence = [
 	Contrib,
   ResultsWaitPage,
   Results,
+	FinalResults,
 ]
