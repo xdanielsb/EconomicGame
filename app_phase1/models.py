@@ -3,13 +3,10 @@ from otree.api import (
     Currency as c, currency_range
 )
 
-
 author = 'Your name here'
-
 doc = """
 Your app description
 """
-
 
 class Constants(BaseConstants):
 	name_in_url = 'app_phase1'
@@ -17,7 +14,11 @@ class Constants(BaseConstants):
 	num_rounds = 3
 
 class Subsession(BaseSubsession):
-	pass
+	def creating_session(self):
+		if 1 == self.round_number:
+			for group in self.get_groups():
+				for player in group.get_players():
+					player.participant.vars["endowment"] = self.session.config["endowment"]
 
 
 class Group(BaseGroup):
@@ -26,8 +27,11 @@ class Group(BaseGroup):
 		print("$$$$$$$$$$$$$$$$$$$$$$")
 		for player in players:
 			print(player.contribution)
-		
+			player.participant.vars["contribution_last_round"] = player.contribution
+			player.participant.vars["endowment"] = player.participant.vars["endowment"] - player.contribution
 
+		total_savings = sum ( [x.contribution for x  in players] )
+		print("total savings = {}".format(total_savings))
 
 class Player(BasePlayer):
 	endowment = models.FloatField()

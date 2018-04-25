@@ -5,7 +5,7 @@ from .models import Constants
 
 class Intro(Page):
 	def is_displayed(self):
-		if self.player.subsession.round_number == 1:
+		if self.player.round_number == 1:
 			return True
 				
 	def vars_for_template(self):
@@ -26,7 +26,18 @@ class Contrib(Page):
 		return vrange
 
 class Results(Page):
-	pass
+  
+	def vars_for_template(self):
+		info_players = []
+		for player in self.group.get_players():
+			info_player = {}
+			info_player["id"] = player.participant.id_in_session
+			info_player["contribution_last_round"] =  player.participant.vars["contribution_last_round"]
+			info_player["total_saving"] = player.participant.vars["endowment"]
+			info_players.append(info_player)
+		vars = {
+			'info_players': info_players,
+		}
 
 class ResultsWaitPage(WaitPage):
 		body_text = "Hello, Could you wait a second, please?"
