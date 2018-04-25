@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Introduction
+{% endblock %}
+
+{% block content %}
+
+	<h3> Final Results </h3> 
+
+	Your Payoff : {{ pay_off }} 
+
+	The Payoff of the other participants :
+
+	{% for player in info_players %} 
+		payoff: {{player.payoff}} <br> 
+	{% endfor %}
+
+    {% next_button %}
+{% endblock %}

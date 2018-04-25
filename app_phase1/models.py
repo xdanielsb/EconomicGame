@@ -39,8 +39,6 @@ class Group(BaseGroup):
 		for player in players:
 			player.participant.vars["pay_off"] = pay_off + player.participant.vars["endowment"]
 
-
-		
 class Player(BasePlayer):
 	endowment = models.FloatField()
 	contribution = models.FloatField(doc="Saving by each player", widget=widgets.RadioSelectHorizontal, label="How much do you want to contribute")

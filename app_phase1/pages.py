@@ -46,6 +46,11 @@ class Results(Page):
 		}
 		return vars
 
+
+	
+class FinalResults(Page):
+	pass
+
 class ResultsWaitPage(WaitPage):
 		body_text = "Hello, Could you wait a second, please?"
 		def after_all_players_arrive(self):
