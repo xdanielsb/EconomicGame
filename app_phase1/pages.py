@@ -4,8 +4,14 @@ from .models import Constants
 
 
 class Intro(Page):
-	pass
-
+	def vars_for_template(self):
+		vars = {
+			'number_players': len(self.group.get_players()).
+			'endowment': self.session.config['endowment'],
+			'total_rounds': Constants.num_rounds,
+			'total_rounds_phase_two': 2,
+		}
+		return vars
 class Contrib(Page):
 	pass
 
