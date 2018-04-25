@@ -4,6 +4,10 @@ from .models import Constants
 
 
 class Intro(Page):
+	def is_displayed(self):
+		if self.player.subsession.round_number == 1:
+			return True
+				
 	def vars_for_template(self):
 		vars = {
 			'number_players': len(self.group.get_players()),
@@ -12,8 +16,14 @@ class Intro(Page):
 			'total_rounds_phase_two': 2,
 		}
 		return vars
+
 class Contrib(Page):
-	pass
+	form_model = "player"
+	form_fields = ["contribution"]
+	
+	def contribution_choices(self):
+		vrange = [ x * 0.5 for x in range(3) ]
+		return vrange
 
 class Results(Page):
 	pass

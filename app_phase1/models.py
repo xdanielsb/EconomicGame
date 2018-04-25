@@ -12,18 +12,20 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'app_phase1'
-    players_per_group = None
-    num_rounds = 3
-
+	name_in_url = 'app_phase1'
+	players_per_group = None
+	num_rounds = 3
 
 class Subsession(BaseSubsession):
-    pass
+	pass
 
 
 class Group(BaseGroup):
-    pass
+	pass
 
 
 class Player(BasePlayer):
-    pass
+	endowment = models.FloatField()
+	contribution = models.FloatField(doc="Saving by each player", widget=widgets.RadioSelectHorizontal, label="How much do you want to contribute")
+
+	
