@@ -23,6 +23,7 @@ SESSION_CONFIGS = [
 			 'display_name': "Daniel' Game",
 			 'num_demo_participants': 3,
 			 'app_sequence' : ['app_phase1'],
+			 'endowment': 10,
 		}
 ]
 
