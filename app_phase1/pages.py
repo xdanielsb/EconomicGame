@@ -20,7 +20,8 @@ class Results(Page):
   pass
 
 page_sequence = [
-  MyPage,
+  Intro,
+	Contrib,
   ResultsWaitPage,
-  Results
+  Results,
 ]
