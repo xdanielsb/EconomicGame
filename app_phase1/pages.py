@@ -49,7 +49,10 @@ class Results(Page):
 class ResultsWaitPage(WaitPage):
 		body_text = "Hello, Could you wait a second, please?"
 		def after_all_players_arrive(self):
-			self.group.set_new_endowments()
+			if self.round_number == Constants.num_rounds:
+				self.group.set_pay_offs()
+			else:
+				self.group.set_new_endowments()
 
 page_sequence = [
   Intro,
