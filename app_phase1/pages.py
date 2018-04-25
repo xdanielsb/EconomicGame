@@ -29,8 +29,10 @@ class Results(Page):
 	pass
 
 class ResultsWaitPage(WaitPage):
-  def after_all_players_arrive(self):
-      pass
+		body_text = "Hello, Could you wait a second, please?"
+		def after_all_players_arrive(self):
+			self.group.set_new_endowments()
+
 
 class Results(Page):
   pass

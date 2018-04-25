@@ -21,7 +21,12 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-	pass
+	def set_new_endowments(self):
+		players  = self.get_players()
+		print("$$$$$$$$$$$$$$$$$$$$$$")
+		for player in players:
+			print(player.contribution)
+		
 
 
 class Player(BasePlayer):
