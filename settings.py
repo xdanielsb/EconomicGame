@@ -18,6 +18,12 @@ SESSION_CONFIGS = [
     #    'num_demo_participants': 3,
     #    'app_sequence': ['public_goods', 'payment_info'],
     #},
+		{
+		   'name': 'app_phase1',
+			 'display_name': "Daniel' Game",
+			 'num_demo_participants': 3,
+			 'app_sequence' : ['app_phase1'],
+		}
 ]
 
 
