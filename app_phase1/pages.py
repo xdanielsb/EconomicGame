@@ -35,18 +35,18 @@ class Results(Page):
 			info_player["contribution_last_round"] =  player.participant.vars["contribution_last_round"]
 			info_player["total_saving"] = player.participant.vars["endowment"]
 			info_players.append(info_player)
+		print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+		print(info_players)
 		vars = {
 			'info_players': info_players,
+			'flag': "hello",
 		}
+		return vars
 
 class ResultsWaitPage(WaitPage):
 		body_text = "Hello, Could you wait a second, please?"
 		def after_all_players_arrive(self):
 			self.group.set_new_endowments()
-
-
-class Results(Page):
-  pass
 
 page_sequence = [
   Intro,

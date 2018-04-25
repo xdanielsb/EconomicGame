@@ -20,7 +20,6 @@ class Subsession(BaseSubsession):
 				for player in group.get_players():
 					player.participant.vars["endowment"] = self.session.config["endowment"]
 
-
 class Group(BaseGroup):
 	def set_new_endowments(self):
 		players  = self.get_players()
