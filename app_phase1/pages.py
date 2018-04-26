@@ -38,7 +38,8 @@ class Results(Page):
   
 	def vars_for_template(self):
 		info_players = []
-		for player in self.group.get_players():
+		#for player in self.group.get_players():
+		for player in self.player.get_others_in_group():
 			info_player = {}
 			info_player["id"] = player.participant.id_in_session
 			info_player["contribution_last_round"] =  player.participant.vars["contribution_last_round"]
@@ -46,6 +47,9 @@ class Results(Page):
 			info_players.append(info_player)
 		vars = {
 			'info_players': info_players,
+			'id': self.player.participant.id_in_session,
+			'contrib': self.player.participant.vars["contribution_last_round"],
+			'total_saving': self.player.participant.vars["endowment"],
 		}
 		return vars
 
@@ -59,7 +63,7 @@ class FinalResults(Page):
 	def vars_for_template(self):
 		vars = {
 			'pay_off' :self.player.savings,
-			'others_pay_off' : [ x.savings for x in self.group.get_players()]
+			'others_pay_off' : [ x.savings for x in self.player.get_others_in_group()]
 		}
 		return vars
 
