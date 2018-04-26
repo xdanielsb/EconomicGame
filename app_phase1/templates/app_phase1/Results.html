@@ -2,11 +2,17 @@
 {% load otree static %}
 
 {% block title %}
-    Page title
+	Partial Results
 {% endblock %}
 
 {% block content %}
-	<h2> Information players </h2>
+
+	<h3> Information of you </h3>
+		id : {{id}} <br>
+		total savings: {{total_saving}} <br>
+		contribution last round: {{contribution_last_round}} <br>
+
+	<h3> Information others  players </h3>
 	{% for player in info_players %}
 		 id : {{ player.id }} <br>
 		 total savings : {{ player.total_saving}} <br>

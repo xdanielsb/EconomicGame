@@ -48,13 +48,11 @@ class Results(Page):
 		vars = {
 			'info_players': info_players,
 			'id': self.player.participant.id_in_session,
-			'contrib': self.player.participant.vars["contribution_last_round"],
+			'contribution_last_round': self.player.participant.vars["contribution_last_round"],
 			'total_saving': self.player.participant.vars["endowment"],
 		}
 		return vars
 
-
-	
 class FinalResults(Page):
 	def is_displayed(self):
 		if self.round_number  == Constants.num_rounds:
