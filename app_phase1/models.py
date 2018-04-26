@@ -45,8 +45,8 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-	endowment = models.FloatField()
-	savings = models.FloatField()
-	contribution = models.FloatField(doc="Saving by each player", widget=widgets.RadioSelectHorizontal, label="How much do you want to contribute")
+	endowment = models.CurrencyField()
+	savings = models.CurrencyField()
+	contribution = models.CurrencyField(doc="Saving by each player", widget=widgets.RadioSelectHorizontal, label="How much do you want to contribute")
 
 	

@@ -2,19 +2,16 @@
 {% load otree static %}
 
 {% block title %}
-    Introduction
+    Final Results
 {% endblock %}
 
 {% block content %}
 
-	<h3> Final Results </h3> 
-
-	Your Payoff : {{ pay_off }} 
-
-	The Payoff of the other participants :
+	Your Payoff : {{ pay_off }} <br>
+	The Payoff of the other participants : <br>
 
 	{% for pay_off in   others_pay_off %} 
-		payoff: {{pay_off}} <br> 
+	  	payoff: {{pay_off}} <br> 
 	{% endfor %}
 
     {% next_button %}

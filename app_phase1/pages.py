@@ -22,7 +22,7 @@ class Contrib(Page):
 	form_fields = ["contribution"]
 	
 	def contribution_choices(self):
-		vrange = [ x * 0.5 for x in range(3) ]
+		vrange = currency_range(c(0), c(1), c(0.5))
 		return vrange
 	
 	def vars_for_template(self):
