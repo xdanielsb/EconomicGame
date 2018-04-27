@@ -52,7 +52,7 @@ ROOMS = []
 #   of the admin interface, set it to DEMO.
 
 # for flexibility, you can set it in the environment variable OTREE_AUTH_LEVEL
-AUTH_LEVEL = "STUDY" #environ.get('OTREE_AUTH_LEVEL')
+AUTH_LEVEL = "DEMO" #environ.get('OTREE_AUTH_LEVEL')
 
 ADMIN_USERNAME = "admin"
 # for security, best to set admin password in an environment variable
