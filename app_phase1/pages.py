@@ -18,6 +18,7 @@ class Intro(Page):
 		return vars
 
 class Contrib(Page):
+	
 	form_model = "player"
 	form_fields = ["contribution"]
 	
@@ -30,6 +31,9 @@ class Contrib(Page):
 			'left_money' : self.player.participant.vars["endowment"],
 		}
 		return vars
+	
+	def get_timeout_seconds(self):
+		return 10 #10 seconds to contrib
 
 class Results(Page):
 	def is_displayed(self):
