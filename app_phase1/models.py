@@ -20,7 +20,11 @@ class Subsession(BaseSubsession):
 			for group in self.get_groups():
 				for player in group.get_players():
 					player.participant.vars["endowment"] = self.session.config["endowment"]
-
+	
+	def vars_for_admin_report(self):
+		payoffs = [ x.savings for x in self.get_players() ]
+		return {"payoffs": payoffs}
+		
 class Group(BaseGroup):
 
 	def set_new_endowments(self):
